@@ -1,4 +1,4 @@
-@echo off  
+::@echo off  
 ::echo show %1%  
 
 git pull 
