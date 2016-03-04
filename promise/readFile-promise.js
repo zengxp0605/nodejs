@@ -54,29 +54,36 @@ fsReadFileDeferd(file).then(function(result){
 
 console.log('Promise方式:---------读取结束--------');
 
+
+
 Q.delay(1000).then(function(){
 	console.log('');
 	console.log('=============延时1s delay 的分割线================');
-	var testFun = function(_arg){
+	var MyObj = {};
+	MyObj.testFun = function(_arg){
 		return [1,2,3,_arg];
 	};
 
 	// 其他的方式  
-	Q.nfcall(fs.readFile,file,'utf-8').then(function(str){
+	Q.nfcall(fs.readFile,file,'utf-8').done(function(str){
 		console.log('nfcall result: ',str);
-	})
-	.done();
+	});
+	//.done();
 
 	Q.ninvoke(fs,'readFile',file,'utf-8').done(function(str){
 		console.log('ninvoke result: ',str);
 	});
+	// 这里传参方式必须为数组
+	Q.npost(fs,'readFile',[file,'utf-8']).done(function(str){
+		console.log('npost result: ',str);
+	});
 
-	//  invoke 无法运行!!!!???
-	// Q.invoke(testFun,['aa','bb']).done(function(rs){
-	// 	console.log('invoke result: ',rs);
-	// });
+	//  invoke, 这里不能替换为  ninvoke 方式
+	Q.invoke(MyObj,'testFun','testArg').done(function(rs){
+		console.log('invoke result: ',rs);
+	});
 
-	Q.fcall(testFun,['a','b']).then(function(rs){
+	Q.fcall(MyObj.testFun,'testArg').then(function(rs){
 		console.log('fcall result: ',rs);
 	}).done();
 
