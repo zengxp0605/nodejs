@@ -49,3 +49,28 @@ promiseQuery(sql_news,val).then(function(news_data){
 .catch(function(err){
 	console.error('catch: ',err);
 }).done();
+
+/// 链式调用测试
+Q.delay(2000).then(function(){
+	console.log('');
+	console.log('=============延时2s delay 的分割线================');
+
+	var getMysqlFun1 = function(){
+		return Q.ninvoke(mysql,'query','select 1');
+	}
+	var getMysqlFun2 = function(){
+		return Q.ninvoke(mysql,'query','select 2');
+	}
+	var getMysqlFun3 = function(){
+		return Q.ninvoke(mysql,'query','select 3');
+	}
+	Q.fcall(getMysqlFun1).then(function(rs1){
+			console.log('---- getMysqlFun1 res:',rs1[0]);
+			// 不返回仍然可以 .then
+		})
+		.then(getMysqlFun2).then(console.log)
+		.then(getMysqlFun3).then(console.log)
+		.done();
+
+});
+

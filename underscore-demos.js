@@ -11,6 +11,7 @@ _.each([11,12,13],function(ele,idx){
 2 : 13
 */
 
+<<<<<<< HEAD
 var obj = {
     a1:{aa1:'aaa',aa2:'aaaaa2'},
     b1:{bb1:'bbb',bb2:'bbb2'}
@@ -26,6 +27,8 @@ _.each(obj,function(ele,idx){
 console.log('--------------分割线1-----------------');
 
 
+=======
+>>>>>>> a787dfc8562dd24331a2681f32d471f0eb0c175b
 //*******map: 对集合以map方式遍历，产生一个新数组
 var r = _.map([1,2,3],function(ele){
 	return ele * 3;
@@ -63,11 +66,16 @@ var users = [
     {name: 'moe', age: 40},
     {name: 'larry', age: 50}
 ];
+<<<<<<< HEAD
 console.log('pluck:',
+=======
+console.log('pluck:'
+>>>>>>> a787dfc8562dd24331a2681f32d471f0eb0c175b
     _.pluck(users, 'name')
 );
 //=> [ 'moe', 'larry' ]
 
+<<<<<<< HEAD
 console.log('--------------分割线2-----------------');
 
 var stooges = [{name : 'curly', age : 25}, {name : 'moe', age : 21}, {name : 'larry', age : 23}];
@@ -97,5 +105,9 @@ console.log('sortBy3',
 
 
 console.log('');
+=======
+
+
+>>>>>>> a787dfc8562dd24331a2681f32d471f0eb0c175b
 //  -===> http://www.css88.com/archives/5443
 console.log('see:','http://www.css88.com/archives/5443');
