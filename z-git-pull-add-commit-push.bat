@@ -1,4 +1,4 @@
-::@echo off  
+::@echo off  ::注释符号,  echo off 表示不输出命令
 ::echo show %1%  
 
 git pull 
@@ -6,8 +6,6 @@ git pull
 git add * -A
 
 set /p ver=commit massage：  
-
-::echo 版本：%ver% 打包开始  
 
 git commit -m "%ver%"
 
