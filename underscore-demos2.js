@@ -26,3 +26,16 @@ var arr3 = _.map(obj1,function(elem, index) {
     return elem + '' + index;
 })
 console.log(arr3);
+
+console.log('------------------------');
+
+var obj2 = {
+    11:{a:1,b:2,c:3},
+    22:{d:4,e:5,f:6}
+}
+var arr4 = _.map(obj2,function(elem, index) {
+    return JSON.stringify(elem);  // 原有的键值被重排
+})
+console.log(arr4);
+
+

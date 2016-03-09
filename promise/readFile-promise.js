@@ -1,14 +1,9 @@
-<<<<<<< HEAD
 
-var Q = require('q');
-
-var fs = require('fs');
-=======
 var Q = require('q'),
 fs = require('fs');
->>>>>>> a787dfc8562dd24331a2681f32d471f0eb0c175b
 
-var file = './tmp/test.txt';
+
+var file = '../tmp/test.txt';
 console.log('原始方式:---------开始读取文件--------');
 fs.readFile(file,'utf-8',function(err,data){
     if(err){
@@ -16,16 +11,11 @@ fs.readFile(file,'utf-8',function(err,data){
     }else{
         console.log(data);
     }
-<<<<<<< HEAD
-})
-console.log('原始方式:--------读取结束--------');
 
-
-=======
 });
 console.log('原始方式:--------读取结束--------');
 
->>>>>>> a787dfc8562dd24331a2681f32d471f0eb0c175b
+
 console.log('Promise方式:---------开始读取文件--------');
 
 var fsReadFileDeferd = function(file,encoding){
@@ -40,16 +30,13 @@ var fsReadFileDeferd = function(file,encoding){
 	});
 	return defer.promise;
 }
-<<<<<<< HEAD
+
 fsReadFileDeferd(file).then(function(result){
 	console.log(result);
 }).catch(console.error);
 console.log('Promise方式:---------读取结束--------');
 
         
-
-            
-=======
 
 fsReadFileDeferd(file).then(function(result){
 	console.log(result);
@@ -79,6 +66,7 @@ fsReadFileDeferd(file).then(function(result){
 console.log('Promise方式:---------读取结束--------');
 
 
+/**********************************************************************/
 
 Q.delay(1000).then(function(){
 	console.log('');
@@ -111,6 +99,26 @@ Q.delay(1000).then(function(){
 		console.log('fcall result: ',rs);
 	}).done();
 
+
+    Q.fcall(function(){
+        return {test:11111};
+    }).then(function(rs){
+        console.log('=============分割线22================');
+        console.log('fcall result: ',rs);
+    }).done();
+
+    Q.all([
+        {test:11111},
+        ['aaa','bbbb']
+    ]).then(function(rs){
+        console.log('fcall result: ',rs);
+        return Q.promise.resolve(rs);
+    })
+    .done(function(rs){
+        console.log('fcall resolve result: ',rs);
+        console.log('=============分割线33================');
+    });
+
 });
->>>>>>> a787dfc8562dd24331a2681f32d471f0eb0c175b
+
 
