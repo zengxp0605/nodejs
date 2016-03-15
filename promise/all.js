@@ -40,3 +40,21 @@ Q.all([
 })
 .done();
 
+/************************
+ *  test2
+ **********************/
+ 
+ var processChat = function(c){
+    return c.split('');
+ }
+
+var processArr = function(arr){
+    return arr.join(' || ');
+ }
+ Q.fcall(function(){
+    return 'aaa';
+ }).then(processChat).then(processArr)
+ .then(function(rs){
+    console.log('---rs: ' ,rs);
+ })
+ .done();
