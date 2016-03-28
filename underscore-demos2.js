@@ -38,4 +38,11 @@ var arr4 = _.map(obj2,function(elem, index) {
 })
 console.log(arr4);
 
+console.log('contains',
 
+    _.contains([1, 2, 3], 3),
+    _.contains([1, 2, 3,4,5,6], [3,6]),  // 不能直接判断数组
+    _.union([1, 2, 3], [101, 2, 1, 10], [2, 1]), // 合并数组,并去重复, 可以对比前后的length 判断数组是否在数组中
+
+    ''
+);

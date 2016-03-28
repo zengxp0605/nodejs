@@ -62,7 +62,8 @@ console.log('reject:',
 //********pluck: 提取一个集合里指定的属性值
 var users = [
     {name: 'moe', age: 40},
-    {name: 'larry', age: 50}
+    {name: 'larry', age: 80},
+    {name: 'lte', age: 50},
 ];
 console.log('pluck:',
     _.pluck(users, 'name')
@@ -85,8 +86,8 @@ var test = _.sortBy(stooges,'age');
 console.log('sortBy1',test);
 
 console.log('sortBy2',
-    _.sortBy(stooges,function(stooge){
-        return -stooge.age;  // 这样可以倒序排列
+    _.sortBy(stooges,function(ele){
+        return - ele.age;  // 这样可以倒序排列
     })
 );
 
