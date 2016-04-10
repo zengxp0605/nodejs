@@ -1,0 +1,27 @@
+{
+  "name": "book.btcnodejs.com",
+  "main": "index.js",
+  "homepage": "https://github.com/zengxp0605/nodejs",
+  "authors": [
+    "jason"
+  ],
+  "description": "test demo",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "nodejs"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "^3.5.16"
+  }
+}
