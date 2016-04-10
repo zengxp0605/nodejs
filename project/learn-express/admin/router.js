@@ -13,7 +13,9 @@ var _subDomainTest = function(admin){
     var secret = require('express')();
     secret.get('/', function (req, res) {
       console.log(secret.mountpath); // /secr*t
-      res.send('Admin Secret');
+      res.json(common.getReqProps(req));
+
+      //res.send('Admin Secret');
     });
 
     admin.use('/secr*t', secret); // load the 'secret' router on '/secr*t', on the 'admin' sub app

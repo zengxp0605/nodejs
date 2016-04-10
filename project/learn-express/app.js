@@ -26,7 +26,7 @@ app.use('/static', express.static(__dirname + '/public', {
 // 启动路由
 require('./app/router')();
 
-
+// 是否配置后台路由
 if(setting.admin){
     var admin = express(); // sub app for Admin
 

@@ -17,6 +17,15 @@ var resWrite = function(res, msg, noHeader, noEnd){
 
 
 module.exports = function(){
+    // 设置模板文件路径和模板引擎
+    app.set('views', __dirname + '/views'); // general config
+    // 模板引擎设置跟view 文件的后缀有关, 
+    // 1.如果是html的后缀,可以如下设置
+    // app.engine('html', require('ejs').renderFile);
+    // app.set('view engine', 'html');
+    
+    // 2.如果写成 .ejs的后缀,则如下设置设置即可
+    app.set('view engine', 'ejs');
 
     // 通过Router 做路由
     // _testRouter();
@@ -28,20 +37,40 @@ module.exports = function(){
         next();
     }, function(req, res, next){
         console.log('loadUser');
+        // 设置cookies
+        res.cookie('name', 'tobi', { domain: '.example.com', path: '/admin', secure: true });
+        res.cookie('rememberme', '1', { expires: new Date(Date.now() + 900000), httpOnly: true });
+
+        // 清除cookie
+        //res.clearCookie('name', { path: '/admin' });
+
+        // 设置 location [TODO: 无法使用???]
+        //res.location('/foo/bar');
+        //res.location('http://www.baidu.com');
+        //return;
+        //res.location('back');
+        //
+        // 跳转
+        //res.redirect('/admin/secret');
+        // res.redirect('http://www.baidu.com');
+        // res.redirect('back'); // 返回来源页面
+        
         next();
     });
 
 
     app.get('/', function(req, res){
-        console.log('load index');
+        console.log('load index,__dirname: ' + __dirname);
 
-        res.send('Get index ');
+        // res.send('Get index ');
+
+        res.render('index', {users: ['Jason', 'Mary']});
     });
 
     app.get('/user/:uid', function(req, res){
         console.log('load user home');
-
-        res.send('User: ');
+        res.json(common.getReqProps(req));
+        // res.send('User: ' + req.params.uid);
     });
 
 
@@ -57,6 +86,11 @@ module.exports = function(){
 
     app.get('/appProps', function(req, res){
         var _prop = common.getAppProps();
+        res.send(_prop);
+    });
+
+    app.get('/reqProps', function(req, res){
+        var _prop = common.getReqProps(req);
         res.send(_prop);
     });
 
