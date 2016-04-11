@@ -81,8 +81,47 @@ module.exports = function(){
     
     });
 
+    // 直接显示文件内容到网页
+    app.get('/file/:name', function (req, res, next) {
+      var options = {
+        root: __dirname + '/../public/tmp/',
+        dotfiles: 'deny',
+        headers: {
+            'x-timestamp': Date.now(),
+            'x-sent': true
+        }
+      };
 
+      var fileName = req.params.name;
+      res.sendFile(fileName, options, function (err) {
+        if (err) {
+          console.log(err);
+          res.status(err.status).end();
+        }
+        else {
+          console.log('Sent:', fileName);
+        }
+      });
+    });
 
+    // 下载测试
+    app.get('/download/:file',function(req, res){
+        var _path = __dirname + '/../public/tmp/';
+        var fileName = req.params.file;
+        res.download(_path + fileName, fileName, function(err){
+          if (err) {
+            // Handle error, but keep in mind the response may be partially-sent
+            // so check res.headersSent
+            console.log(err);
+            res.json(err);
+          } else {
+            // decrement a download credit, etc.
+            console.log('Download: ', _path + fileName);
+            // 这里已经无法结束下载
+            res.end('<p>test end!</p>');
+          }
+        });
+    });
 
     app.get('/appProps', function(req, res){
         var _prop = common.getAppProps();

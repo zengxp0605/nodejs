@@ -3,7 +3,7 @@ var _ = require('underscore');
 
 
 function setLock(){
-    var isLock = _.random(1, 1);
+    var isLock = _.random(0, 1);
     console.log(isLock); 
     var defer = Q.defer();
     if(isLock === 1){
@@ -18,7 +18,9 @@ function setLock(){
 
 setLock().then(function(rs){
     console.log('rs:', rs);
-
+    if(rs){
+        throw new Error('已锁!');
+    }
 }, function(err1){
     console.log('err1:', err1);
 })
@@ -28,10 +30,18 @@ setLock().then(function(rs){
 .then(function(){
     console.log('test2');
 })
-.fail(console.error)
-.done();
+// 下面的catch 和fail 哪个写在前面,error时会执行哪个, done 则都会执行
+.catch(function(){
+    console.log('catch....');
+})
+.fail(function(){
+    console.log('fail....');
+})
+.done(function(){
+    console.log('done....');
+});
 
-//return;
+return;
 
 
 setLock().then(function(isLock){
