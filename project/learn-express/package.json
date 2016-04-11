@@ -1,0 +1,27 @@
+{
+  "name": "learn-express",
+  "version": "1.0.0",
+  "description": "学习express框架用的项目",
+  "main": "app.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zengxp0605/nodejs.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express"
+  ],
+  "author": "Jason Zeng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zengxp0605/nodejs/issues"
+  },
+  "homepage": "https://github.com/zengxp0605/nodejs#readme",
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "express": "^4.13.4"
+  }
+}
