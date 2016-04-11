@@ -98,6 +98,20 @@ console.log('sortBy3',
     })
 );
 
+/**
+ * Returns true if an enumerable object contains no values (no enumerable own-properties). 
+ * For strings and array-like objects _.isEmpty checks if the length property is 0.
+ */
+console.log('isEmpty',
+    _.isEmpty([3, 4, 2, 1 , 6]), // false
+    _.isEmpty(1), // false
+    _.isEmpty('1'), // true
+    _.isEmpty('sssssssss'), // false
+    _.isEmpty(''), // true
+    _.isEmpty([]),  // true
+    _.isEmpty({})  // true
+);
+
 
 console.log('');
 //  -===> http://www.css88.com/archives/5443

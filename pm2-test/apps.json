@@ -1,0 +1,16 @@
+{
+  "apps":[
+	{
+	  "name":"runfast",
+	  "script":"./server/index.js",
+	  "cwd":"d:/Tools/nodejs/src/pm2-test",
+	  "instances":1,
+	  "watch" : true,
+	  "error_file":"d:/pm2-logs/errfile.log",
+	  "out_file":"d:/pm2-logs/outfile.log",
+	  "autorestart":false,
+	  
+	}
+  ],
+  "note":"pm2 startOrRestart apps.json"
+}

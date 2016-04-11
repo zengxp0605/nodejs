@@ -122,3 +122,21 @@ Q.delay(1000).then(function(){
 });
 
 
+Q.delay(2000).then(function(){
+
+    function foo (param, cb){
+        console.log('foo1');
+
+            return cb({test: 'test'});
+
+    };
+
+    Q.fcall(function(){
+        console.log('-----1------');
+        return foo({});
+    }).then(function(data){
+        console.log('-----2------');
+        console.log(data);
+    });
+
+}).done();
