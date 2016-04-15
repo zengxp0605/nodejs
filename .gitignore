@@ -2,3 +2,7 @@ node_modules/*
 *.bat
 
 npm-debug.log
+
+.gitignore
+*.png
+*.pdf

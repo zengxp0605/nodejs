@@ -17,6 +17,11 @@ var resWrite = function(res, msg, noHeader, noEnd){
 
 
 module.exports = function(){
+    console.log('test: log');
+    //console.debug('test: debug');
+    console.error('test: error');
+    console.info('test: info');
+
     // 设置模板文件路径和模板引擎
     app.set('views', __dirname + '/views'); // general config
     // 模板引擎设置跟view 文件的后缀有关, 
