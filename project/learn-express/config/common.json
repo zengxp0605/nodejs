@@ -1,5 +1,5 @@
 {
     "name" : "Learn express",
-    "port" : 5001,
+    "port" : 5002,
     "admin" : true
 }
