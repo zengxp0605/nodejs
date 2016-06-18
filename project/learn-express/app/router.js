@@ -17,10 +17,11 @@ var resWrite = function(res, msg, noHeader, noEnd){
 
 
 module.exports = function(){
-    console.log('test: log');
+
+    // console.log('test: log');
     //console.debug('test: debug');
-    console.error('test: error');
-    console.info('test: info');
+    // console.error('test: error');
+    // console.info('test: info');
 
     // 设置模板文件路径和模板引擎
     app.set('views', __dirname + '/views'); // general config
@@ -137,6 +138,7 @@ module.exports = function(){
         var _prop = common.getReqProps(req);
         res.send(_prop);
     });
+
 
     _initApis();
 };
