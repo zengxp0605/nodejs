@@ -31,29 +31,28 @@ winston.log('info', "127.0.0.1 - 00000");
 winston.info("127.0.0.1 - there's no place like home");
 
 // 写入文件
-function writeFile(file, content){ 
-    var fs = require('fs'); 
+// function writeFile(file, content){ 
+//     var fs = require('fs'); 
       
-    // appendFile，如果文件不存在，会自动创建新文件  
-    // 如果用writeFile，那么会删除旧文件，直接写新文件  
-    fs.appendFile(file, "\r\n" + content, function(err){  
-        if(err)  
-            console.info("fail " + err);  
-        else  
-            console.info("写入文件ok");  
-    });  
-}  
+//     // appendFile，如果文件不存在，会自动创建新文件  
+//     // 如果用writeFile，那么会删除旧文件，直接写新文件  
+//     fs.appendFile(file, "\r\n" + content, function(err){  
+//         if(err)  
+//             console.info("fail " + err);  
+//         else  
+//             console.info("写入文件ok");  
+//     });  
+// }  
 
-console.log = function(msg){
-  process.stdout.write('Log data: ' + msg);
-  writeFile('d:/tmp/test.log', msg);
-};
+// console.log = function(msg){
+//   process.stdout.write('Log data: ' + msg);
+//   writeFile('d:/tmp/test.log', msg);
+// };
 
-console.log('how about 中文');
+// console.log('how about 中文');
 
-console.info(process.stdout.on);
-//console.info( console.log.toString());
+// console.info(process.stdout.on);
 
-process.stdout.on('data', function(){
-    process.stdout.write('end');
-});
+// process.stdout.on('data', function(){
+//     process.stdout.write('end');
+// });

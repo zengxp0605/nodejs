@@ -1,0 +1,12 @@
+[2016-12-16 14:07:06.530] [TRACE] dateFileLog - Entering cheese testing
+[2016-12-16 14:07:06.541] [DEBUG] dateFileLog - Got cheese.
+[2016-12-16 14:07:06.543] [INFO] dateFileLog - Cheese is Gouda.
+[2016-12-16 14:07:06.543] [WARN] dateFileLog - Cheese is quite smelly.
+[2016-12-16 14:07:06.544] [ERROR] dateFileLog - Cheese is too ripe!
+[2016-12-16 14:07:06.544] [FATAL] dateFileLog - Cheese was breeding ground for listeria.
+[2016-12-22 12:39:54.368] [TRACE] dateFileLog - Entering cheese testing
+[2016-12-22 12:39:54.379] [DEBUG] dateFileLog - Got cheese.
+[2016-12-22 12:39:54.380] [INFO] dateFileLog - Cheese is Gouda.
+[2016-12-22 12:39:54.380] [WARN] dateFileLog - Cheese is quite smelly.
+[2016-12-22 12:39:54.381] [ERROR] dateFileLog - Cheese is too ripe!
+[2016-12-22 12:39:54.381] [FATAL] dateFileLog - Cheese was breeding ground for listeria.
