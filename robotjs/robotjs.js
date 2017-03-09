@@ -16,6 +16,42 @@ var testMouse = function () {
     }
 }
 
+var timer = null;
+
+var testClick = function () {
+    // Move the mouse across the screen as a sine wave.
+    var robot = require("robotjs");
+
+    function _start() {
+        timer = setInterval(function () {
+            //robot.moveMouse(x, y);
+            var mouse = robot.getMousePos();
+
+            if (mouse.x > 500 ) {
+                console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y);
+                clearInterval(timer);
+                timer = null;
+                return;
+            }
+
+            robot.mouseClick();
+        }, 50);
+    }
+
+    setInterval(function () {
+        if (!timer) {
+            var mouse = robot.getMousePos();
+            if (mouse.x < 500 && mouse.y < 500) {
+                console.log('重新开始');
+                _start();
+            }
+        }
+    }, 5000);
+
+    _start();
+}
+
+
 
 var testScreen = function () {
     // Get pixel color under the mouse.
@@ -29,4 +65,6 @@ var testScreen = function () {
     console.log("#" + hex + " at x:" + mouse.x + " y:" + mouse.y);
 }
 
-testMouse();
+// testMouse();
+
+testClick();
